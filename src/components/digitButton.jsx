@@ -1,7 +1,6 @@
 import { ACTIONS } from "../App"
 import "../App.css"
 
-
 const DigitButton=({digit,dispatch})=>{
     return(
         <>

@@ -46,7 +46,7 @@ const reducer=(state, {type, payload})=>{
       if(state.currentOperand === null && state.previousOperand === null){
         return state;
       }
-      if(state.currentOperand === null){
+      if(state.previousOperand !== null && state.currentOperand === null){
         return{
           ...state,
           operation: payload.operation
@@ -84,8 +84,32 @@ const reducer=(state, {type, payload})=>{
         return{
           ...state,
           overwrite: false,
-          currentOperand: null
+          currentOperand: null,
+          previousOperand: null
         }
+      }
+      if(state.currentOperand === null && state.previousOperand === null){
+        return{
+          ...state
+        }
+      }
+      if(state.currentOperand === null && state.previousOperand !== null && state.operation !== null){
+        return{
+          ...state,
+          operation: null
+        }
+      }
+      if(state.currentOperand === null && state.previousOperand !== null && state.previousOperand.length === 1){
+        return{
+          ...state,
+          previousOperand: null
+        }
+      }
+      if(state.currentOperand === null && state.previousOperand !== null){
+        return{
+          ...state,
+          previousOperand: state.previousOperand.slice(0,-1)
+      }
       }
       if(state.currentOperand.length === 1){
         return{
@@ -93,9 +117,11 @@ const reducer=(state, {type, payload})=>{
           currentOperand: null
         }
       }
-      return{
-        ...state,
-        currentOperand: state.currentOperand.slice(0, -1)
+      if(state.currentOperand !== null){
+        return{
+          ...state,
+          currentOperand: state.currentOperand.slice(0, -1)
+        }
       }
     }
 
@@ -148,14 +174,11 @@ const INTEGER_FORMATTER= new Intl.NumberFormat("en-us", {
 const formatOperand=(operand)=>{
   if(operand === null || operand === undefined) return;
 
-  const [a,v]="Hello World".split(" ");
-
   const [integer, decimal]= operand.split('.');
 
   if(decimal === null || decimal === undefined) return INTEGER_FORMATTER.format(integer);
 
   return `${INTEGER_FORMATTER.format(integer)}.${decimal}`
-
 }
 
 const App=()=>{
@@ -167,6 +190,7 @@ const App=()=>{
 
 
   return(
+    <div className="container">
     <div className='calculator-grid'>
       <div className='output'>
         <div className='previous-operand'>{formatOperand(previousOperand)} {operation}</div>
@@ -177,7 +201,8 @@ const App=()=>{
         dispatch({
           type: ACTIONS.CLEAR
         })
-      }}>
+        }}
+      >
         AC
       </button>
 
@@ -185,7 +210,8 @@ const App=()=>{
         dispatch({
           type: ACTIONS.DELETE_DIGIT
         })
-      }}>
+      }}
+      >
         DEL
       </button>
 
@@ -207,16 +233,14 @@ const App=()=>{
       <button className="span-two" onClick={()=>{
         dispatch({
           type: ACTIONS.EVALUATE
-        })
-      }}>
+          })
+        }}
+      >
         =
       </button>
-
+      </div>
     </div>
-
   )
-
-
 }
 
 export default App
