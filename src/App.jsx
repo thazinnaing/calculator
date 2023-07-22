@@ -96,7 +96,9 @@ const reducer=(state, {type, payload})=>{
       if(state.currentOperand === null && state.previousOperand !== null && state.operation !== null){
         return{
           ...state,
-          operation: null
+          operation: null,
+          previousOperand: null,
+          currentOperand: state.previousOperand
         }
       }
       if(state.currentOperand === null && state.previousOperand !== null && state.previousOperand.length === 1){
