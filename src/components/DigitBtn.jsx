@@ -1,7 +1,7 @@
 import { ACTIONS } from "./Action"
 import "../App.css"
 // eslint-disable-next-line react/prop-types
-const DigitButton=({digit,dispatch})=>{
+const DigitBtn=({digit,dispatch})=>{
     return(
         <>
         <button onClick={()=>{
@@ -14,4 +14,4 @@ const DigitButton=({digit,dispatch})=>{
     )
 }
 
-export default DigitButton;
+export default DigitBtn;

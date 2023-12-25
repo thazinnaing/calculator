@@ -1,7 +1,7 @@
 import { ACTIONS } from "./Action"
 import "../App.css"
 // eslint-disable-next-line react/prop-types
-const OperationButton=({operation,dispatch})=>{
+const OperationBtn=({operation,dispatch})=>{
     return(
         <>
         <button onClick={()=>{
@@ -16,4 +16,4 @@ const OperationButton=({operation,dispatch})=>{
     )
 }
 
-export default OperationButton;
+export default OperationBtn;

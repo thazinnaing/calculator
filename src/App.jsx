@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import "./App.css";
-import DigitButton from "./components/digitButton";
-import OperationButton from "./components/OperationButton";
+import OperationBtn from "./components/OperationBtn";
+import DigitBtn from "./components/DigitBtn";
 import { ACTIONS } from "./components/Action";
 
 const reducer = (state, { type, payload }) => {
@@ -13,7 +13,7 @@ const reducer = (state, { type, payload }) => {
         operation: null,
       };
     }
-    
+
     case ACTIONS.ADD_DIGIT: {
       if (state.overwrite) {
         return {
@@ -222,21 +222,21 @@ const App = () => {
           DEL
         </button>
 
-        <OperationButton operation="/" dispatch={dispatch} />
-        <DigitButton digit={"7"} dispatch={dispatch} />
-        <DigitButton digit={"8"} dispatch={dispatch} />
-        <DigitButton digit={"9"} dispatch={dispatch} />
-        <OperationButton operation={"*"} dispatch={dispatch} />
-        <DigitButton digit={"4"} dispatch={dispatch} />
-        <DigitButton digit={"5"} dispatch={dispatch} />
-        <DigitButton digit={"6"} dispatch={dispatch} />
-        <OperationButton operation={"+"} dispatch={dispatch} />
-        <DigitButton digit={"1"} dispatch={dispatch} />
-        <DigitButton digit={"2"} dispatch={dispatch} />
-        <DigitButton digit={"3"} dispatch={dispatch} />
-        <OperationButton operation={"-"} dispatch={dispatch} />
-        <DigitButton digit={"0"} dispatch={dispatch} />
-        <DigitButton digit={"."} dispatch={dispatch} />
+        <OperationBtn operation="/" dispatch={dispatch} />
+        <DigitBtn digit={"7"} dispatch={dispatch} />
+        <DigitBtn digit={"8"} dispatch={dispatch} />
+        <DigitBtn digit={"9"} dispatch={dispatch} />
+        <OperationBtn operation={"*"} dispatch={dispatch} />
+        <DigitBtn digit={"4"} dispatch={dispatch} />
+        <DigitBtn digit={"5"} dispatch={dispatch} />
+        <DigitBtn digit={"6"} dispatch={dispatch} />
+        <OperationBtn operation={"+"} dispatch={dispatch} />
+        <DigitBtn digit={"1"} dispatch={dispatch} />
+        <DigitBtn digit={"2"} dispatch={dispatch} />
+        <DigitBtn digit={"3"} dispatch={dispatch} />
+        <OperationBtn operation={"-"} dispatch={dispatch} />
+        <DigitBtn digit={"0"} dispatch={dispatch} />
+        <DigitBtn digit={"."} dispatch={dispatch} />
         <button
           className="span-two"
           onClick={() => {
