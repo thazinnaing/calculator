@@ -13,7 +13,7 @@ const reducer = (state, { type, payload }) => {
         operation: null,
       };
     }
-
+    
     case ACTIONS.ADD_DIGIT: {
       if (state.overwrite) {
         return {
