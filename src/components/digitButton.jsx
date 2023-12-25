@@ -1,4 +1,4 @@
-import { ACTIONS } from "../App"
+import { ACTIONS } from "./Action"
 import "../App.css"
 
 const DigitButton=({digit,dispatch})=>{
