@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import "./App.css";
-import DigitButton from "./components/DigitButton";
+import DigitButton from "./components/digitButton";
 import OperationButton from "./components/OperationButton";
 import { ACTIONS } from "./components/Action";
 
