@@ -60,12 +60,14 @@ body{
   body{
     background-color: black;
   }
+  .container{
+    padding-bottom: 30%;
+  }
   .calculator-grid{
     width: 100vw;
     height: 100vh;
     margin-top: 0;
     display: grid;
-    padding-bottom: 10%;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: minmax(30% auto) repeat(5 auto);
 
