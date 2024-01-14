@@ -63,7 +63,7 @@ body{
     margin-top: 0;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: minmax(35% auto) repeat(5);
+    grid-template-rows: minmax(30% auto) repeat(5);
 
   }
   .output .previous-operand{
