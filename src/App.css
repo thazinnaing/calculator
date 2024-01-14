@@ -62,6 +62,7 @@ body{
   }
   .container{
     padding-bottom: 30%;
+    overflow-y: hidden;
   }
   .calculator-grid{
     width: 100vw;
